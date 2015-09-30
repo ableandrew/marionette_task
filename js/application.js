@@ -1,13 +1,21 @@
 define (
-    ['jquery','underscore',"backbone","Order", "OrderList", "OrderView", "OrdersView", "Book", "Books", "BookView", 'BooksView', "HeaderView"],
-    function( $, _, Backbone, Order, OrderList,OrderView, OrdersView, Book, Books, BookView, BooksView, HeaderView ) {
+    ['jquery','underscore',"backbone","Marionette","Order", "OrderList", "OrderView", "OrdersView", "Book", "Books", "BookView", 'BooksView', "HeaderView", 'OrdersCompView'],
+    function( $, _, Backbone,Marionette, Order, OrderList,OrderView, OrdersView, Book, Books, BookView, BooksView, HeaderView, OrdersCompView ) {
 
+        var app = new Marionette.Application();
 
-        (function(){
+        app.addRegions({
+            content: "#wrapper",
+            orders: "#orders"
+        });
+
+        app.on('before:start', function(){
 
             var header =  new HeaderView();
             header.render();
 
+            var list =  new OrdersCompView();
+           list.render();
 
             $.ajaxSetup({async: false});
 
@@ -16,8 +24,11 @@ define (
             var allOrders =  new OrdersView({collection:profiles});
             allOrders.render();
 
-            header.removeRegion("content");
-            header.removeRegion("orders");
+            app.removeRegion('orders');
+            app.removeRegion('content');
 
-        })();
+        });
+        app.start();
+
+
     });

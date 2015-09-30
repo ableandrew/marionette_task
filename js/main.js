@@ -16,14 +16,15 @@ requirejs.config({
         BookView: "views/bookView",
         BooksView: "views/booksView",
         HeaderView: "views/headerView",
-        Marionette: '../lib/vendor/backbone.marionette/lib/backbone.marionette'
+        Marionette: '../lib/vendor/backbone.marionette/lib/backbone.marionette',
+        OrdersCompView: "views/ordersCompView"
     }
 
 });
 
 require(
-    ['jquery','underscore', "backbone", "application" , 'Marionette'],
-    function( $, _,Backbone, application, Marionette){
+    ['jquery','underscore', "backbone", "application" , 'Marionette', 'OrdersCompView'],
+    function( $, _,Backbone, application, Marionette, OrdersCompView){
 
 
     }
