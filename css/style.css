@@ -1,0 +1,33 @@
+*{margin:0;padding:0}
+body{font-family:Verdana, sans-serif;text-align:inherit;font-size:13px;background-size:100%}
+#wrapper{width:980px;margin:0 auto;text-align:left}
+li{list-style-type:none}
+nav{margin-bottom:30px}
+nav #topMenu{height:80px}
+nav li{display:inline-block;padding-right:25px;padding-top:20px}
+nav .listMenu a{text-decoration:none;color:#4ad4ff;border-bottom:1px dashed #4ad4ff;font-size:18px}
+.tableTR{height:50px;border-top:1px solid lightgrey;border-bottom:1px solid lightgrey}
+.tableTD{display:inline-block;width:280px;padding-top:12px;float:left}
+#orders .information{padding:25px 0}
+#orders div>.customerInformation{display:inline-block;color:grey;float:left;width:280px}
+#orders .done{background:#e6ffff}
+#orders .ordersTitle{border-bottom:1px dashed #000080}
+#orders .ordersList{display:inline-block}
+#orders div .ordersList:first-child{width:40%}
+#orders div .ordersList:nth-child(2){display:inline-block;width:40%;text-align:center;vertical-align:top}
+#orders div .ordersList:nth-child(3){display:inline-block;width:18%;text-align:right;vertical-align:top}
+#orders .delivered{color:green}
+#orders .cancel{color:red}
+#orders .price{color:#ff3b00}
+#orders .discount{color:lightgrey;text-decoration:line-through}
+#orders .order{height:100px;padding-top:10px}
+#orders .delivery{text-align:right;border-bottom:1px dashed #000080;border-top:1px dashed #000080;height:40px;vertical-align:middle;padding-top:20px}
+#orders .sum{margin-top:40px}
+#orders .bonus{display:inline-block;background:#f0faf7;padding:5px;width:210px;text-align:center}
+.spriteCanceledOrder{margin-top:3px;margin-right:10px;width:12px;height:12px;background:url("../images/sprite.png") no-repeat -44px -1px;float:left}
+.spriteOnDelivery{margin-top:3px;margin-right:5px;width:20px;height:16px;background:url("../images/sprite.png") no-repeat -2px -14px;float:left}
+.spriteDelivered{margin-top:2px;margin-right:10px;width:12px;height:12px;background:url("../images/sprite.png") no-repeat -29px -16px;float:left}
+.spriteDownArrow{margin-top:3px;margin-right:8px;width:17px;height:16px;background:url("../images/sprite.png") no-repeat -27px 0;float:left}
+.spriteOpenOrder{margin-top:-2px;margin-right:120px;width:15px;height:15px;background:url("../images/sprite.png") no-repeat;float:left}
+.spriteBook{position:absolute;width:20px;height:17px;background:url("../images/sprite.png") no-repeat -60px -5px;float:left}
+

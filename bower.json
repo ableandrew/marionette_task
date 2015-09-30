@@ -1,0 +1,21 @@
+{
+  "name": "backbone_task",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ableandrew/backbone_task",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.2.0",
+    "jquery": "~2.1.1",
+    "requirejs": "~2.1.20",
+    "require-handlebars-plugin": "~1.0.0",
+    "underscore": "~1.8.3"
+  }
+}
