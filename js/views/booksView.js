@@ -5,8 +5,7 @@ define (
         app.BooksView = Marionette.CollectionView.extend({
             childView: BookView,
 
-
-            onBeforeRender: function(){
+            initialize: function(){
                 this.collection.forEach(function(order) {
                     var bookView = new BookView({model: order});
                     $("#bookOrders"+order.get("OrderId")).append(bookView.render().el)

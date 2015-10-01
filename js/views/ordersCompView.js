@@ -16,7 +16,7 @@ define (
                 var target = event.target;
                 var element = $("#ordersList");
                 while (target != element){
-                    if (target.tagName == 'DIV') {
+                    if (target.className == 'tableTR') {
                         var number = target.getAttribute("id");
                         var elem = document.getElementById("acc"+number);
                         var sprite = target.getElementsByClassName("spriteOpenOrder");

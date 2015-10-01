@@ -4,9 +4,17 @@ define (
 
         var app = app || {};
         app.BookView = Marionette.ItemView.extend({
-            tagName: 'div',
-            template: bookTemplate
+            template: bookTemplate,
+
+            initialize: function () {
+
+
+            }
+
+
+
         });
+
 
         return app.BookView;
 
