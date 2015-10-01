@@ -4,14 +4,12 @@ define (
         var app = app || {};
         app.OrdersView = Marionette.CollectionView.extend({
             template: headerTemplateHBS,
-            el: '#orders',
+            el: '#ordersList',
             childView: OrderView,
 
 
-            render: function () {
+            onRender: function () {
                 this.collection.each(function(order) {
-                    var orderView = new OrderView({model: order});
-                    this.$el.append(orderView.render().el);
                     var allCollection = new Books();
                     allCollection.fetch();
                     var serializedCollection = allCollection.toJSON();

@@ -1,6 +1,6 @@
 define (
-    ['jquery','underscore','backbone',"Marionette","handlebars", 'hbs!templates/header', 'OrderList', 'OrdersView', 'OrderView'],
-    function($,_,Backbone,Marionette, handlebars, headerTemplateHBS, OrderList, OrdersView, OrderView) {
+    ['jquery','underscore','backbone',"Marionette","handlebars", 'hbs!templates/header', 'OrderList', 'OrdersView', 'OrderView', 'OrdersCompView'],
+    function($,_,Backbone,Marionette, handlebars, headerTemplateHBS, OrderList, OrdersView, OrderView, OrdersCompView) {
         var app = app || {};
         app.HeaderView = Marionette.LayoutView.extend({
             template: headerTemplateHBS,
@@ -16,6 +16,7 @@ define (
                 'click #greenStatus': "completed",
                 'click #greyStatus': "current",
                 'click #all': "all"
+
             },
 
             canceled: function(){
@@ -24,8 +25,8 @@ define (
                     coll.fetch();
                     var filter = coll.canceled();
                     var canceledOrderList = new OrderList(filter);
-                    var orders2 =  new OrdersView({collection:canceledOrderList});
-                    orders2.render();
+                    var list =  new OrdersCompView().render();
+                    var orders2 =  new OrdersView({collection:canceledOrderList}).render();
                     this.listStyle("redStatus");
             },
 
@@ -35,8 +36,8 @@ define (
                     coll.fetch();
                     var filter = coll.completed();
                     var canceledOrderList = new OrderList(filter);
-                    var orders2 =  new OrdersView({collection:canceledOrderList});
-                    orders2.render();
+                    var list =  new OrdersCompView().render();
+                    var orders2 =  new OrdersView({collection:canceledOrderList}).render();
                     this.listStyle("greenStatus");
             },
 
@@ -46,8 +47,8 @@ define (
                     coll.fetch();
                     var filter = coll.current();
                     var canceledOrderList = new OrderList(filter);
-                    var orders2 =  new OrdersView({collection:canceledOrderList});
-                    orders2.render();
+                    var list =  new OrdersCompView().render();
+                    var orders2 =  new OrdersView({collection:canceledOrderList}).render();
                     this.listStyle("greyStatus");
             },
 
@@ -55,8 +56,8 @@ define (
                     $("#orders").empty();
                     var coll = new OrderList();
                     coll.fetch();
-                    var allOrders =  new OrdersView({collection:coll});
-                    allOrders.render();
+                    var list =  new OrdersCompView().render();
+                    var allOrders =  new OrdersView({collection:coll}).render();
                     this.listStyle("all");
             },
 

@@ -1,16 +1,16 @@
 
-<div id="acc{{id}}" class="tableTR">
-        <div class="tableTD">{{date}}</div>
-        <div class="tableTD">{{ orderId }}</div>
-        <div class="tableTD">
-            <div class="{{ sprite }}" ></div>
+<div id="{{id}}" class="tableTR">
+        <span class="tableTD">{{date}}</span>
+        <span class="tableTD">{{ orderId }}</span>
+        <span class="tableTD">
+            <span class="{{ sprite }}" ></span>
             <span>{{ state }}</span>
-        </div><br>
-    <div class="spriteOpenOrder"></div>
+        </span><br>
+    <span class="spriteOpenOrder"></span>
 </div>
 
 
-<div id="{{id}}" style="display: none">
+<div id="acc{{id}}" style="display: none">
     <div class="information">
         <div class="customerInformation">Имя получателя:</div>
         <div>{{ name }}</div>

@@ -5,14 +5,14 @@ define (
         var app = app || {};
         app.OrderView = Marionette.ItemView.extend({
             tagName: 'li',
-            template: orderTemplateHBS,
+            class: "list",
+            template: orderTemplateHBS
 
-            events: {
-                'click #acc1': "acc1",
+            /*events: {
+                /!*'click #acc1': "acc1",
                 'click #acc2': "acc2",
                 'click #acc3': "acc3",
-                'click #acc4': "acc4"
-
+                'click #acc4': "acc4"*!/
             },
 
             acc1: function(){
@@ -50,7 +50,12 @@ define (
                 else{
                     obj.css("display","none");
                 }
-            }
+            }*/
+
+
+
+
+
         });
 
         return app.OrderView;

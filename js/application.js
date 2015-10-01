@@ -24,8 +24,7 @@ define (
             var allOrders =  new OrdersView({collection:profiles});
             allOrders.render();
 
-            app.removeRegion('orders');
-            app.removeRegion('content');
+
 
         });
         app.start();
