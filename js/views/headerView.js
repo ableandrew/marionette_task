@@ -1,6 +1,6 @@
 define (
-    ['jquery','underscore','backbone',"Marionette","handlebars", 'hbs!templates/header', 'OrderList', 'OrdersView', 'OrderView', 'OrdersCompView'],
-    function($,_,Backbone,Marionette, handlebars, headerTemplateHBS, OrderList, OrdersView, OrderView, OrdersCompView) {
+    ['jquery','underscore','backbone',"Marionette","handlebars", 'hbs!templates/header', 'OrderList', 'OrdersView', "Const"],
+    function($,_,Backbone,Marionette, handlebars, headerTemplateHBS, OrderList, OrdersView, Const) {
         var app = app || {};
         app.HeaderView = Marionette.LayoutView.extend({
             template: headerTemplateHBS,
@@ -12,53 +12,31 @@ define (
             },
 
             events: {
-                'click #redStatus': "canceled",
-                'click #greenStatus': "completed",
-                'click #greyStatus': "current",
-                'click #all': "all"
-
+                'click nav': 'filter'
             },
 
-            canceled: function(){
-                    $("#orders").empty();
-                    var coll = new OrderList();
-                    coll.fetch();
-                    var filter = coll.canceled();
-                    var canceledOrderList = new OrderList(filter);
-                    var list =  new OrdersCompView().render();
-                    var orders2 =  new OrdersView({collection:canceledOrderList}).render();
-                    this.listStyle("redStatus");
-            },
+            filter: function(event){
+                var target = event.target;
+                while (target != $("nav")){
+                    if (target.className == 'filter') {
+                        var number = target.getAttribute("id");
 
-            completed: function(){
-                    $("#orders").empty();
-                    var coll = new OrderList();
-                    coll.fetch();
-                    var filter = coll.completed();
-                    var canceledOrderList = new OrderList(filter);
-                    var list =  new OrdersCompView().render();
-                    var orders2 =  new OrdersView({collection:canceledOrderList}).render();
-                    this.listStyle("greenStatus");
-            },
-
-            current: function(){
-                    $("#orders").empty();
-                    var coll = new OrderList();
-                    coll.fetch();
-                    var filter = coll.current();
-                    var canceledOrderList = new OrderList(filter);
-                    var list =  new OrdersCompView().render();
-                    var orders2 =  new OrdersView({collection:canceledOrderList}).render();
-                    this.listStyle("greyStatus");
-            },
-
-            all: function(){
-                    $("#orders").empty();
-                    var coll = new OrderList();
-                    coll.fetch();
-                    var list =  new OrdersCompView().render();
-                    var allOrders =  new OrdersView({collection:coll}).render();
-                    this.listStyle("all");
+                        if (number === "all"){
+                            $("#ordersList").empty();
+                            var allOrders =  new OrdersView({collection:this.collection}).render();
+                            this.listStyle("all");
+                        }
+                        else{
+                            $("#ordersList").empty();
+                            var orders =  new OrdersView({filter: function(child){
+                                return child.get('state')  ===  Const[number];
+                            }, collection:this.collection}).render();
+                            this.listStyle(number);
+                        }
+                        return;
+                    }
+                    target = target.parentNode;
+                }
             },
 
             listStyle: function(idButton){

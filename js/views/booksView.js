@@ -4,6 +4,7 @@ define (
         var app = app || {};
         app.BooksView = Marionette.CollectionView.extend({
             childView: BookView,
+            //el: "#ordersList",
 
             initialize: function(){
                 this.collection.forEach(function(order) {

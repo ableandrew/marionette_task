@@ -6,6 +6,12 @@ define (
             el: '#ordersList',
             childView: OrderView,
 
+            filter: function (child) {
+                return this;
+            },
+
+
+
 
             onRender: function () {
                 this.collection.each(function(order) {
@@ -18,10 +24,10 @@ define (
                     var newCollection = new Books(filter);
                     var idCollection =  new BooksView({collection:newCollection});
                     idCollection.render();
+
                 }, this);
                 return this;
             }
-
 
 
         });

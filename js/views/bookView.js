@@ -6,12 +6,9 @@ define (
         app.BookView = Marionette.ItemView.extend({
             template: bookTemplate,
 
-            initialize: function () {
-
-
-            }
-
-
+            /*initialize: function(){
+                  //  $("#orders").append(this.el)
+            }*/
 
         });
 

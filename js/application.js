@@ -1,6 +1,8 @@
 define (
-    ['jquery','underscore',"backbone","Marionette","Order", "OrderList", "OrderView", "OrdersView", "Book", "Books", "BookView", 'BooksView', "HeaderView", 'OrdersCompView'],
-    function( $, _, Backbone,Marionette, Order, OrderList,OrderView, OrdersView, Book, Books, BookView, BooksView, HeaderView, OrdersCompView ) {
+    ['jquery','underscore',"backbone","Marionette","Order", "OrderList", "OrderView", "OrdersView",
+        "Book", "Books", "BookView", 'BooksView', "HeaderView", 'OrdersCompView', 'Regions'],
+    function( $, _, Backbone,Marionette, Order, OrderList,OrderView,
+              OrdersView, Book, Books, BookView, BooksView, HeaderView, OrdersCompView, Regions ) {
 
         var app = new Marionette.Application();
 
@@ -11,20 +13,22 @@ define (
 
         app.on('before:start', function(){
 
-            var header =  new HeaderView();
-            header.render();
-
-            var list =  new OrdersCompView();
-           list.render();
-
             $.ajaxSetup({async: false});
 
             var profiles = new OrderList();
             profiles.fetch();
+
+            var header =  new HeaderView({collection:profiles});
+            header.render();
+
+            var list =  new OrdersCompView();
+            list.render();
+
+
             var allOrders =  new OrdersView({collection:profiles});
             allOrders.render();
 
-
+            //var region = new Regions;
 
 
 

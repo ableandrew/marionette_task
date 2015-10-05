@@ -1,18 +1,18 @@
 
 define (
-    ['jquery','underscore','backbone','Marionette', 'OrdersView', "handlebars", 'hbs!templates/list'],
-    function($,_,Backbone, Marionette, OrdersView, handlebars, listTemplateHBS) {
+    ['jquery','underscore','backbone','Marionette','OrderView', 'OrdersView', "handlebars", 'hbs!templates/list'],
+    function($,_,Backbone, Marionette, OrderView, OrdersView, handlebars, listTemplateHBS) {
         var app = app || {};
         app.OrdersCompView = Marionette.CompositeView.extend({
             template: listTemplateHBS,
             el: '#order',
-            childView: OrdersView,
+            childView: OrderView,
 
             events: {
-                'click #ordersList': "can"
+                'click #ordersList': "accordion"
             },
 
-            can: function (event) {
+            accordion: function (event) {
                 var target = event.target;
                 var element = $("#ordersList");
                 while (target != element){
