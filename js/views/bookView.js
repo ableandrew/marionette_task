@@ -1,18 +1,17 @@
-define (
-    ['jquery','underscore','backbone','Marionette', "handlebars", 'hbs!templates/bookview'],
-    function($, _,Backbone,Marionette, handlebars, bookTemplate) {
+define(function(require, module, exports) {
+    var $ = require('jquery'),
+        _ = require('underscore'),
+        Backbone = require('backbone'),
+        Marionette = require('Marionette'),
+        handlebars = require('handlebars'),
+        bookTemplate = require('hbs!templates/bookview');
 
-        var app = app || {};
-        app.BookView = Marionette.ItemView.extend({
-            template: bookTemplate,
-
-            /*initialize: function(){
-                  //  $("#orders").append(this.el)
-            }*/
-
-        });
-
-
-        return app.BookView;
+    var app = app || {};
+    app.BookView = Marionette.ItemView.extend({
+        template: bookTemplate
 
     });
+
+    return app.BookView;
+
+});

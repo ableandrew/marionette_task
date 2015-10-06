@@ -7,27 +7,27 @@ requirejs.config({
         handlebars: "../lib/vendor/require-handlebars-plugin/hbs/handlebars.runtime",
         hbs: '../lib/vendor/require-handlebars-plugin/hbs',
         Order: 'models/order',
-        OrderList: "collection/orders",
-        OrderView: "views/orderView",
-        OrdersView: "views/ordersView",
+        OrderList: 'collection/orders',
+        OrderView: 'views/orderView',
+        OrdersView: 'views/ordersView',
         application: "application",
         Book: 'models/book',
         Books: 'collection/books',
-        BookView: "views/bookView",
-        BooksView: "views/booksView",
-        HeaderView: "views/headerView",
+        BookView: 'views/bookView',
+        BooksView: 'views/booksView',
+        HeaderView: 'views/headerView',
         Marionette: '../lib/vendor/backbone.marionette/lib/backbone.marionette',
-        OrdersCompView: "views/ordersCompView",
-        Regions: "views/region",
-        Const: 'const/const'
+        OrdersCompView: 'views/ordersCompView',
+        Const: 'const/const',
+        behaviors: 'behavior/behaviorsLookup',
+        filter: 'behavior/filter'
     }
 
 });
 
 require(
-    ['jquery','underscore', "backbone", "application" , 'Marionette', 'OrdersCompView'],
-    function( $, _,Backbone, application, Marionette, OrdersCompView, Const){
-
+    ['jquery','underscore', 'backbone', 'application' ],
+    function( $, _,Backbone, application, Marionette){
 
     }
 );

@@ -1,42 +1,18 @@
-define (
-    ['jquery','underscore',  'backbone', 'Marionette', "handlebars", 'hbs!templates/orderview', 'Books', 'BooksView'],
-    function($, _,Backbone,Marionette,handlebars, orderTemplateHBS, Books, BooksView) {
+define(function(require, module, exports) {
+    var $ = require('jquery'),
+        _ = require('underscore'),
+        Backbone = require('backbone'),
+        Marionette = require('Marionette'),
+        handlebars = require('handlebars'),
+        orderTemplateHBS = require('hbs!templates/orderview');
 
-        var app = app || {};
-        app.OrderView = Marionette.ItemView.extend({
-            tagName: 'li',
-            class: "list",
-            template: orderTemplateHBS,
-
-
-
-
-            /*initialize: function () {
-
-
-                var allCollection = new Books();
-                allCollection.fetch();
-                var serializedCollection = allCollection.toJSON();
-                var filter = _.where(serializedCollection, {OrderId: this.model.get("id")});
-
-
-                console.log(filter);
-
-
-                var newCollection = new Books(filter);
-                var idCollection =  new BooksView({collection:newCollection});
-                idCollection.render();
-
-                return this;
-            }*/
-
-        });
-
-
-
-
-
-        return app.OrderView;
+    var app = app || {};
+    app.OrderView = Marionette.ItemView.extend({
+        tagName: 'li',
+        class: 'list',
+        template: orderTemplateHBS
 
     });
 
+    return app.OrderView;
+});

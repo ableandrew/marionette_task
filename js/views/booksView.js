@@ -1,20 +1,25 @@
-define (
-    ['jquery','underscore','backbone','Marionette','Books', "BookView"],
-    function($,_,Backbone,Marionette, Books, BookView) {
-        var app = app || {};
-        app.BooksView = Marionette.CollectionView.extend({
-            childView: BookView,
-            //el: "#ordersList",
+define(function(require, module, exports) {
+    var $ = require('jquery'),
+        _ = require('underscore'),
+        Backbone = require('backbone'),
+        Marionette = require('Marionette'),
+        Books = require('Books'),
+        BookView = require('BookView');
 
-            initialize: function(){
-                this.collection.forEach(function(order) {
-                    var bookView = new BookView({model: order});
-                    $("#bookOrders"+order.get("OrderId")).append(bookView.render().el)
-                }, this);
-                return this;
-            }
+    var app = app || {};
+    app.BooksView = Marionette.CollectionView.extend({
+        childView: BookView,
 
-        });
-        return app.BooksView;
+
+        initialize: function(){
+            this.collection.forEach(function(order) {
+                var bookView = new BookView({model: order});
+                $('#book-orders'+order.get('OrderId')).append(bookView.render().el)
+            }, this);
+            return this;
+        }
+
     });
+    return app.BooksView;
 
+});

@@ -1,13 +1,17 @@
-define (
-    ['jquery','underscore',"backbone","Marionette"],
-    function( $, _, Backbone,Marionette ) {
-        var app = app || {};
+define(function(require, module, exports) {
+    var $ = require('jquery'),
+        _ = require('underscore'),
+        Backbone = require('backbone'),
+        Marionette = require('Marionette');
 
-        app.CONST = {
-            redStatus: "Canceled",
-            greenStatus: "Delivered",
-            greyStatus: "Sent by courier"
-        };
+    var app = app || {};
 
-            return app.CONST;
-    });
+    app.CONST = {
+        redStatus: 'Canceled',
+        greenStatus: 'Delivered',
+        greyStatus: 'Sent by courier'
+    };
+
+    return app.CONST;
+
+});

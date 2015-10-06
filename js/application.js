@@ -1,15 +1,23 @@
-define (
-    ['jquery','underscore',"backbone","Marionette","Order", "OrderList", "OrderView", "OrdersView",
-        "Book", "Books", "BookView", 'BooksView', "HeaderView", 'OrdersCompView', 'Regions'],
-    function( $, _, Backbone,Marionette, Order, OrderList,OrderView,
-              OrdersView, Book, Books, BookView, BooksView, HeaderView, OrdersCompView, Regions ) {
+define(function(require, module, exports){
+        var $ = require('jquery'),
+            _ = require('underscore'),
+            Backbone = require('backbone'),
+            Marionette = require("Marionette"),
+            Order = require('Order'),
+            OrderList = require('OrderList'),
+            OrderView = require('OrderView'),
+            OrdersView = require('OrdersView'),
+            Book = require('Book'),
+            Books = require('Books'),
+            BookView = require('BookView'),
+            BooksView = require('BooksView'),
+            HeaderView = require('HeaderView'),
+            OrdersCompView = require('OrdersCompView'),
+            behaviors = require('behaviors');
+
 
         var app = new Marionette.Application();
 
-        app.addRegions({
-            content: "#wrapper",
-            orders: "#orders"
-        });
 
         app.on('before:start', function(){
 
@@ -26,14 +34,12 @@ define (
 
 
             var allOrders =  new OrdersView({collection:profiles});
-            allOrders.render();
-
-            //var region = new Regions;
-
+            allOrders.render().init();
 
 
         });
-        app.start();
+        module.exports = app.start();
+
+});
 
 
-    });

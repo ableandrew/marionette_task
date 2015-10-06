@@ -1,0 +1,45 @@
+$menuColor: rgb(74, 212, 255);
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  text-align: inherit;
+  font-size: 13px;
+  background-size: 100%;
+}
+
+#wrapper {
+  width:980px;
+  margin:0 auto;
+  text-align:left;
+}
+
+li  {
+  list-style-type: none;
+}
+
+nav {
+  margin-bottom: 30px;
+
+  #top-menu {
+    height: 80px;
+  }
+
+  li {
+    display: inline-block;
+    padding-right: 25px;
+    padding-top: 20px;
+  }
+
+  .list-menu a {
+    text-decoration: none;
+    color: $menuColor;
+    border-bottom: 1px dashed $menuColor;
+    font-size: 18px;
+  }
+}
+
