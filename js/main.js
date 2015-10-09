@@ -20,14 +20,16 @@ requirejs.config({
         OrdersCompView: 'views/ordersCompView',
         Const: 'const/const',
         behaviors: 'behavior/behaviorsLookup',
-        filter: 'behavior/filter'
+        filter: 'behavior/filter',
+        controller: 'controller'
     }
 
 });
 
 require(
     ['jquery','underscore', 'backbone', 'application' ],
-    function( $, _,Backbone, application, Marionette){
+    function( $, _,Backbone, application, Marionette ){
+
 
     }
 );

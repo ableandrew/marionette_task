@@ -4,6 +4,7 @@ define(function(require, module, exports) {
         Backbone = require('backbone'),
         Marionette = require('Marionette'),
         handlebars = require('handlebars'),
+        behaviors = require('behaviors'),
         headerTemplateHBS = require('hbs!templates/header');
 
     var app = app || {};
@@ -12,17 +13,23 @@ define(function(require, module, exports) {
         template: headerTemplateHBS,
         el: '#wrapper',
 
+        regions: {
+            "orders": "#orders"
+        },
+
         ui: {
             menuList: '.top-menu-link'
         },
 
         behaviors: {
             Filter: {
-                coll: 'Collection'
+
             }
         }
 
+
     });
+
 
     return app.HeaderView;
 

@@ -13,31 +13,20 @@ define(function(require, module, exports){
             BooksView = require('BooksView'),
             HeaderView = require('HeaderView'),
             OrdersCompView = require('OrdersCompView'),
+            controller = require('controller'),
             behaviors = require('behaviors');
 
 
         var app = new Marionette.Application();
 
 
+
+
         app.on('before:start', function(){
-
-            $.ajaxSetup({async: false});
-
-            var profiles = new OrderList();
-            profiles.fetch();
-
-            var header =  new HeaderView({collection:profiles});
-            header.render();
-
-            var list =  new OrdersCompView();
-            list.render();
-
-
-            var allOrders =  new OrdersView({collection:profiles});
-            allOrders.render().init();
-
-
+           var controll = new controller();
         });
+
+
         module.exports = app.start();
 
 });

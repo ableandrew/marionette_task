@@ -8,9 +8,10 @@ define(function(require, module, exports) {
         module.exports = Marionette.Behaviors.behaviorsLookup = function () {
 
             var behaviorStorage = {};
+
             _.extend(behaviorStorage, {Filter: behaviorFilter});
 
             return behaviorStorage;
         };
 
-    });
+});

@@ -1,0 +1,13 @@
+{
+  "name": "sinon",
+  "version": "1.17.0",
+  "_release": "1.17.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.17.0",
+    "commit": "423c0556a072fb5da7a720733682614b2b10f37c"
+  },
+  "_source": "git://192.168.35.117:6789/sinon",
+  "_target": "~1.17.0",
+  "_originalSource": "sinon"
+}

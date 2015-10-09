@@ -6,21 +6,19 @@ define (function(require, module, exports){
         Marionette = require('Marionette'),
         OrdersView = require('OrdersView'),
         Const = require('Const'),
+        HeaderView = require('HeaderView'),
         OrderList = require('OrderList');
 
     var app = app || {};
 
     app.Filter = Marionette.Behavior.extend({
 
+        onRender:function(){
+            this.collection=this.view.collection;
+            },
 
         events: {
             "click @ui.menuList": 'filter'
-        },
-
-        collect: function(){
-            var profiles = new OrderList();
-            profiles.fetch();
-            return profiles;
         },
 
 
@@ -29,22 +27,18 @@ define (function(require, module, exports){
             while (target != $('nav')){
                 if (target.className === 'filter') {
                     var number = target.getAttribute('id');
-
                     if (number === 'all'){
-
-                        console.log();
-
-
                         $('#orders-list').empty();
-                        var allOrders =  new OrdersView({collection:this.collect()}).render().init();
+                        var allOrders =  new OrdersView({collection:this.collection}).render().init();
                         this.listStyle('all');
                     }
                     else{
-
                         $('#orders-list').empty();
-                        var orders =  new OrdersView({filter: function(child){
-                            return child.get('state')  ===  Const[number];
-                        }, collection:this.collect()}).render().init();
+                        var orders =  new OrdersView({
+                            filter: function(child){
+                                return child.get('state')  ===  Const[number];
+                            },
+                            collection:this.collection}).render().init();
                         this.listStyle(number);
                     }
                     return;
@@ -59,12 +53,8 @@ define (function(require, module, exports){
             });
             $('#' + idButton).children().css({color: 'black', border: '0'});
         }
-
-
     });
 
     return app.Filter;
 
-
-
-    });
+});
