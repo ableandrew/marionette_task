@@ -29,9 +29,10 @@ requirejs.config({
 
 require(
     ['jquery','underscore', 'backbone' , 'Order', 'OrderList', 'Book', 'Books', 'Const', 'filter','handlebars',
-        'hbs!templates/header','hbs!templates/bookview','hbs!templates/list','hbs!templates/orderview', 'BookView'],
+        'hbs!templates/header','hbs!templates/bookview','hbs!templates/list','hbs!templates/orderview', 'BookView', 'OrderView', 'BooksView',
+        'OrdersView','HeaderView','OrdersCompView'],
     function( $, _,Backbone,Order, OrderList, Book, Books, Const, filter,handlebars,
-              headerTemplateHBS,bookTemplate,listTemplateHBS,orderTemplateHBS, BookView){
+              headerTemplateHBS,bookTemplate,listTemplateHBS,orderTemplateHBS, BookView, OrderView, BooksView,OrdersView,HeaderView,OrdersCompView){
 
 
         mocha.setup('bdd');
@@ -138,23 +139,43 @@ require(
 
         describe("Checking templates", function() {
             it("Checking header template", function() {
-                assert.isString(headerTemplateHBS(), 'Not ok!');
+                assert.isString(headerTemplateHBS(), 'Not ok with template!');
             });
             it("Checking book template", function() {
-                assert.isString(bookTemplate(), 'Not ok!');
+                assert.isString(bookTemplate(), 'Not ok with template!');
             });
             it("Checking list template", function() {
-                assert.isString(listTemplateHBS(), 'Not ok!');
+                assert.isString(listTemplateHBS(), 'Not ok with template!');
             });
             it("Checking order template", function() {
-                assert.isString(orderTemplateHBS(), 'Not ok!');
+                assert.isString(orderTemplateHBS(), 'Not ok with template!');
             });
         });
 
+        function view (){
+            var obj = new BookView();
+            obj.render();
+
+            var obj2 = new BooksView();
+            obj2.render();
+
+            var obj1 = new OrderView();
+            obj1.render();
+
+            var obj3 = new OrdersView();
+            obj3.render();
+
+            var obj4 = new HeaderView();
+            obj4.render();
+
+            var obj5 = new OrdersCompView();
+            obj5.render();
+
+        }
+
         describe("View", function() {
             it("View", function() {
-                var obj = new BookView;
-                expect(BookView).to.throw(Error);
+                expect(view).not.to.throw(Error);
             });
         });
 
